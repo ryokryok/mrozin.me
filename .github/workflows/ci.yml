@@ -27,6 +27,6 @@ jobs:
       - name: Svelte Check
         run: pnpm check
       - name: Unit Test
-        run: test:unit
+        run: pnpm test:unit
       - name: E2E Test
-        run: test
+        run: pnpm test
