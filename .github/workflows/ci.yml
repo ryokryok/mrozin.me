@@ -29,4 +29,4 @@ jobs:
       - name: Unit Test
         run: pnpm test:unit
       - name: E2E Test
-        run: pnpm test
+        run: npx playwright install && pnpm test
