@@ -1,4 +1,7 @@
 <script lang="ts">
+	import Fa from 'svelte-fa';
+	import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
+	import ZennLogo from './ZennLogo.svelte';
 	import type { Link } from '$lib/types';
 
 	export let links: Link[];
@@ -6,7 +9,17 @@
 
 <div class="links">
 	{#each links as link}
-		<a href={link.href}>{link.name}</a>
+		<a href={link.href} class="link-item">
+			{#if link.name === 'GitHub'}
+				<Fa icon={faGithub} />
+			{:else if link.name === 'Twitter'}
+				<Fa icon={faTwitter} />
+			{:else if link.name === 'Zenn'}
+				<ZennLogo width={'2rem'} height={'2rem'} />
+			{:else}
+				<p>{link.name}</p>
+			{/if}
+		</a>
 	{/each}
 </div>
 
@@ -14,5 +27,10 @@
 	.links {
 		display: flex;
 		gap: 1rem;
+	}
+
+	.link-item {
+		font-size: 2rem;
+		color: black;
 	}
 </style>

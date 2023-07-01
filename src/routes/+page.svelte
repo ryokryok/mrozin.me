@@ -5,7 +5,7 @@
 
 	const author = {
 		name: 'Mr_ozin',
-		description: 'A Japanese Web Developer',
+		description: 'A Japanese Web Frontend Developer',
 		src: '/images/author.jpg'
 	};
 
