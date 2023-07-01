@@ -1,7 +1,8 @@
 <script lang="ts">
 	import Avatar from './Avatar.svelte';
 	import Links from './Links.svelte';
-	import type { Link } from '$lib/types';
+	import Projects from './Projects.svelte';
+	import type { Link, Project } from '$lib/types';
 
 	const author = {
 		name: 'Mr_ozin',
@@ -23,6 +24,15 @@
 			href: 'https://zenn.dev/mr_ozin'
 		}
 	];
+
+	const projects: Project[] = [
+		{
+			title: 'mrozin.me',
+			description: `I aimed to create a "simple & ultra fast" web page.`,
+			stacks: ['SvelteKit', 'Cloudflare Pages'],
+			href: 'https://mrozin.me/'
+		}
+	];
 </script>
 
 <svelte:head>
@@ -33,3 +43,5 @@
 <Avatar {...author} />
 
 <Links {links} />
+
+<Projects {projects} />
