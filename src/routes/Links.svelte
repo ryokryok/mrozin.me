@@ -9,7 +9,7 @@
 
 <div class="links">
 	{#each links as link}
-		<a href={link.href} class="link-item">
+		<a href={link.href} class="link-item" target="_blank" rel="noopener noreferrer">
 			{#if link.name === 'GitHub'}
 				<Fa icon={faGithub} />
 			{:else if link.name === 'Twitter'}

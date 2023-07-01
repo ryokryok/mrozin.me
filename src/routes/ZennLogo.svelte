@@ -1,6 +1,6 @@
 <script lang="ts">
-	export let width: string = '2rem';
-	export let height: string = '2rem';
+	export let width: string;
+	export let height: string;
 </script>
 
 <!-- Powered by https://zenn.dev/mediakit -->
