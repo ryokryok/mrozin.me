@@ -2,32 +2,15 @@
 	import './global.css';
 </script>
 
-<div class="site-root">
-	<div class="site-container">
-		<nav>
-			<a href="/">Home</a>
-			<a href="/project">Project</a>
-		</nav>
-
-		<div class="main-content">
-			<slot />
-		</div>
-	</div>
+<div class="site-container">
+	<slot />
 </div>
 
 <style>
-	.site-root {
-		width: 100%;
-		height: 100%;
-	}
-
 	.site-container {
-		max-width: 40rem;
+		max-width: 50rem;
 		margin: 0 auto;
-		padding: 2rem 1rem;
-	}
-
-	.main-content {
-		padding: 1rem 0;
+		padding: 3rem 1rem;
+		color: #444;
 	}
 </style>

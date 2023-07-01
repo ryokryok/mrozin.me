@@ -16,7 +16,10 @@ const config = {
 				include: ['/*'],
 				exclude: ['<all>']
 			}
-		})
+		}),
+		files: {
+			lib: 'src/lib'
+		}
 	}
 };
 
