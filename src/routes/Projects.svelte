@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Fa from 'svelte-fa';
-	import { faLink } from '@fortawesome/free-solid-svg-icons';
+	import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
 	import type { Project } from '$lib/types';
 	export let projects: Project[];
 </script>
@@ -11,10 +11,12 @@
 		<article>
 			<h3 class="project-title">{project.title}</h3>
 			<p class="project-description">{project.description}</p>
-			<p class="project-description">Teck stack: {project.stacks.join(' + ')}</p>
-			<a href={project.href} target="_blank" class="project-link"
-				><Fa icon={faLink} /> {project.href}</a
-			>
+			<p class="project-description">Tech stack: {project.stacks.join(' + ')}</p>
+			{#if project.href !== undefined}
+				<a href={project.href} target="_blank" class="project-link"
+					><Fa icon={faExternalLink} /> {project.href}</a
+				>
+			{/if}
 		</article>
 	{/each}
 </div>
@@ -31,7 +33,7 @@
 		font-size: 2rem;
 	}
 	.project-title {
-		color: #222;
+		color: #000;
 		font-size: 1.5rem;
 		font-weight: bold;
 		padding-bottom: 0.25rem;
@@ -43,7 +45,7 @@
 	}
 
 	.project-description {
-		font-size: 1.25rem;
+		font-size: 1rem;
 		padding-bottom: 0.25rem;
 	}
 </style>

@@ -10,7 +10,7 @@
 	.site-container {
 		max-width: 50rem;
 		margin: 0 auto;
-		padding: 3rem 0rem;
+		padding: 3rem 1rem;
 		color: #444;
 	}
 </style>

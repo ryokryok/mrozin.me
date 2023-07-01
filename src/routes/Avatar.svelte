@@ -34,11 +34,12 @@
 	}
 
 	.author-name {
-		font-size: 2rem;
+		color: #000;
+		font-size: 3rem;
 		text-shadow: #ddd 1px 0 10px;
 	}
 
 	.author-paragraph {
-		font-size: 1rem;
+		font-size: 1.5rem;
 	}
 </style>

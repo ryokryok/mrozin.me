@@ -2,9 +2,9 @@
 	import Avatar from './Avatar.svelte';
 	import Links from './Links.svelte';
 	import Projects from './Projects.svelte';
-	import type { Link, Project } from '$lib/types';
+	import type { Avatar as Author, Link, Project } from '$lib/types';
 
-	const author = {
+	const author: Author = {
 		name: 'Mr_ozin',
 		description: 'A Japanese Web Frontend Developer',
 		src: '/images/author.jpg'
