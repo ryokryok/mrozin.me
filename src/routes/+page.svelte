@@ -36,8 +36,14 @@
 </script>
 
 <svelte:head>
-	<title>Mr_ozin - A Web Developer</title>
+	<title>Mr_ozin</title>
 	<meta name="description" content="Profile site about Mr_ozin" />
+	<meta name="og:title" content="Mr_ozin" />
+	<meta name="og:site_title" content="Mr_ozin" />
+	<meta name="og:description" content="Profile site about Mr_ozin" />
+	<meta name="og:url" content="https://mrozin.me/" />
+	<meta name="og:image" content="https://mrozin.me/images/author.jpg" />
+	<meta name="og:type" content="website" />
 </svelte:head>
 
 <Avatar {...author} />
