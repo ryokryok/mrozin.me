@@ -39,8 +39,18 @@
 	];
 </script>
 
-<Avatar {...author} />
+<div class="content-layout">
+	<Avatar {...author} />
 
-<Links {links} />
+	<Links {links} />
 
-<Projects {projects} />
+	<Projects {projects} />
+</div>
+
+<style>
+	.content-layout {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+</style>

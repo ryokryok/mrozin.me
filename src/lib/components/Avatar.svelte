@@ -21,8 +21,9 @@
 	}
 	.author-content {
 		display: flex;
-		align-items: flex-start;
-		justify-content: space-between;
+		flex-direction: row;
+		justify-content: start;
+		gap: 1rem;
 	}
 
 	.author-avatar {
@@ -30,7 +31,6 @@
 	}
 	.author-profile {
 		flex: 1;
-		padding: 0 1rem;
 	}
 
 	.author-name {
@@ -41,5 +41,15 @@
 
 	.author-paragraph {
 		font-size: 1.5rem;
+	}
+
+	@media screen and (max-width: 30rem) {
+		.author-content {
+			flex-direction: column;
+			align-items: center;
+		}
+		.author-profile {
+			text-align: center;
+		}
 	}
 </style>

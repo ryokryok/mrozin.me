@@ -23,7 +23,6 @@
 
 <style>
 	.content-root {
-		padding: 2rem 0;
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
@@ -40,7 +39,7 @@
 	}
 	.project-link {
 		font-size: 1rem;
-		color: #888;
+		color: #444;
 		font-weight: bold;
 	}
 

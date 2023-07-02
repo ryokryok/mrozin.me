@@ -42,4 +42,10 @@
 		font-size: 2rem;
 		color: black;
 	}
+
+	@media screen and (max-width: 30rem) {
+		.links {
+			justify-content: center;
+		}
+	}
 </style>
