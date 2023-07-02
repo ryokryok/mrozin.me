@@ -35,11 +35,6 @@
 	];
 </script>
 
-<svelte:head>
-	<title>Mr_ozin - A Web Developer</title>
-	<meta name="description" content="Profile site about Mr_ozin" />
-</svelte:head>
-
 <Avatar {...author} />
 
 <Links {links} />
