@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Avatar from './Avatar.svelte';
-	import Links from './Links.svelte';
-	import Projects from './Projects.svelte';
+	import Avatar from '$lib/components/Avatar.svelte';
+	import Links from '$lib/components/Links.svelte';
+	import Projects from '$lib/components/Projects.svelte';
 	import type { Avatar as Author, Link, Project } from '$lib/types';
 
 	const author: Author = {
@@ -22,6 +22,10 @@
 		{
 			name: 'Zenn',
 			href: 'https://zenn.dev/mr_ozin'
+		},
+		{
+			name: 'Hatena',
+			href: 'https://mr-ozin.hatenablog.jp/'
 		}
 	];
 
@@ -35,8 +39,18 @@
 	];
 </script>
 
-<Avatar {...author} />
+<div class="content-layout">
+	<Avatar {...author} />
 
-<Links {links} />
+	<Links {links} />
 
-<Projects {projects} />
+	<Projects {projects} />
+</div>
+
+<style>
+	.content-layout {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+</style>
