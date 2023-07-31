@@ -2,49 +2,17 @@
 	import Avatar from '$lib/components/Avatar.svelte';
 	import Links from '$lib/components/Links.svelte';
 	import Projects from '$lib/components/Projects.svelte';
-	import type { Avatar as Author, Link, Project } from '$lib/types';
+	import type { PageData } from './$types';
 
-	const author: Author = {
-		name: 'Mr_ozin',
-		description: 'A Japanese Web Frontend Developer',
-		src: '/images/author.jpg'
-	};
-
-	const links: Link[] = [
-		{
-			name: 'GitHub',
-			href: 'https://github.com/ryokryok'
-		},
-		{
-			name: 'Twitter',
-			href: 'https://twitter.com/Mr_ozin'
-		},
-		{
-			name: 'Zenn',
-			href: 'https://zenn.dev/mr_ozin'
-		},
-		{
-			name: 'Hatena',
-			href: 'https://mr-ozin.hatenablog.jp/'
-		}
-	];
-
-	const projects: Project[] = [
-		{
-			title: 'mrozin.me',
-			description: `I aimed to create a "simple & ultra fast" web page.`,
-			stacks: ['SvelteKit', 'Cloudflare Pages'],
-			href: 'https://mrozin.me/'
-		}
-	];
+	export let data: PageData;
 </script>
 
 <div class="content-layout">
-	<Avatar {...author} />
+	<Avatar name={data.name} description={data.description} avatar={data.avatar} />
 
-	<Links {links} />
+	<Links links={data.sns} />
 
-	<Projects {projects} />
+	<Projects projects={data.projects} />
 </div>
 
 <style>

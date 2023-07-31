@@ -11,10 +11,9 @@
 		<article>
 			<h3 class="project-title">{project.title}</h3>
 			<p class="project-description">{project.description}</p>
-			<p class="project-description">Tech stack: {project.stacks.join(' + ')}</p>
-			{#if project.href !== undefined}
-				<a href={project.href} target="_blank" class="project-link"
-					><Fa icon={faExternalLink} /> {project.href}</a
+			{#if project.url !== undefined}
+				<a href={project.url} target="_blank" class="project-link"
+					><Fa icon={faExternalLink} /> {project.url}</a
 				>
 			{/if}
 		</article>
@@ -46,5 +45,6 @@
 	.project-description {
 		font-size: 1rem;
 		padding-bottom: 0.25rem;
+		white-space: pre-line;
 	}
 </style>

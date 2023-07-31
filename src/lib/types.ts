@@ -1,17 +1,35 @@
 export type Avatar = {
-	src: string;
 	name: string;
 	description: string;
+	avatar: {
+		url: string;
+		height: number;
+		width: number;
+	};
 };
 
 export type Link = {
+	id: string;
 	name: string;
-	href: string;
+	url: string;
 };
 
 export type Project = {
+	id: string;
 	title: string;
 	description: string;
-	stacks: string[];
-	href: string;
+	url: string;
 };
+
+type MicroCMSDate = {
+	createdAt: string;
+	updatedAt: string;
+	publishedAt: string;
+	revisedAt: string;
+};
+
+export type ProfileResponse = MicroCMSDate &
+	Avatar & {
+		sns: Link[];
+		projects: Project[];
+	};

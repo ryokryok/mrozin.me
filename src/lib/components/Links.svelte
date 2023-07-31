@@ -2,8 +2,8 @@
 	import Fa from 'svelte-fa';
 	import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 	import ZennLogo from './ZennLogo.svelte';
-	import type { Link } from '$lib/types';
 	import HatenaLogo from './HatenaLogo.svelte';
+	import type { Link } from '$lib/types';
 
 	export let links: Link[];
 </script>
@@ -11,7 +11,7 @@
 <div class="links">
 	{#each links as link}
 		<a
-			href={link.href}
+			href={link.url}
 			class="link-item"
 			title={link.name}
 			target="_blank"
