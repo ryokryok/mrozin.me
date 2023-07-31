@@ -13,12 +13,18 @@ jobs:
     permissions:
       contents: read
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
           check-latest: true
+          cache: pnpm
+          cache-dependency-path: package.json
+        env:
+          CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
+          CMS_ENDPOINT: ${{ secrets.CMS_ENDPOINT }}
       - run: corepack enable pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -26,9 +32,6 @@ jobs:
         run: pnpm lint
       - name: Svelte Check
         run: pnpm check
-        env:
-          CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
-          CMS_ENDPOINT: ${{ secrets.CMS_ENDPOINT }}
       - name: Unit Test
         run: pnpm test:unit
       - name: E2E Test
