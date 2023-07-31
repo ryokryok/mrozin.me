@@ -1,12 +1,16 @@
 <script lang="ts">
-	export let src: string;
+	export let avatar: {
+		url: string;
+		height: number;
+		width: number;
+	};
 	export let name: string;
 	export let description: string;
 </script>
 
 <div class="author-content">
 	<div class="author-avatar">
-		<img {src} alt={name} width={160} height={160} />
+		<img src={avatar.url} alt={name} width={avatar.width} height={avatar.height} />
 	</div>
 	<div class="author-profile">
 		<h1 class="author-name">{name}</h1>
@@ -16,18 +20,20 @@
 
 <style>
 	img {
-		max-width: 100%;
+		width: 100%;
+		height: 100%;
 		border-radius: 10%;
 	}
 	.author-content {
 		display: flex;
-		flex-direction: row;
+		align-items: flex-start;
 		justify-content: start;
 		gap: 1rem;
 	}
 
 	.author-avatar {
 		width: 10rem;
+		height: 10rem;
 	}
 	.author-profile {
 		flex: 1;
