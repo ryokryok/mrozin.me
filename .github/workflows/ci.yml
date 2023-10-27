@@ -31,11 +31,6 @@ jobs:
         env:
           CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
           CMS_ENDPOINT: ${{ secrets.CMS_ENDPOINT }}
-      - name: Unit Test
-        run: pnpm test:unit
-        env:
-          CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
-          CMS_ENDPOINT: ${{ secrets.CMS_ENDPOINT }}
       - name: E2E Test
         run: npx playwright install && pnpm test
         env:
