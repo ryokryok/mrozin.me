@@ -1,13 +1,15 @@
 import { error } from '@sveltejs/kit';
 
 import type { PageServerLoad } from './$types';
-import { fetchProfile } from '$lib/server/getProfile';
+import { fetchProfile } from '$lib/server/fetchProfile';
+import { fetchArticle } from '$lib/server/fetchArticle';
 
 export const load: PageServerLoad = async () => {
 	try {
-		const data = await fetchProfile();
-		if (data) {
-			return data;
+		const profileResponse = await fetchProfile();
+		const articlesResponse = await fetchArticle();
+		if (profileResponse || articlesResponse) {
+			return { profile: profileResponse, articles: articlesResponse.articles };
 		} else {
 			throw error(404, 'Not found');
 		}

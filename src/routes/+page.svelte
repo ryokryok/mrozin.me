@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Articles from '$lib/components/Articles.svelte';
 	import Avatar from '$lib/components/Avatar.svelte';
 	import Links from '$lib/components/Links.svelte';
 	import Projects from '$lib/components/Projects.svelte';
@@ -8,11 +9,17 @@
 </script>
 
 <div class="content-layout">
-	<Avatar name={data.name} description={data.description} avatar={data.avatar} />
+	<Avatar
+		name={data.profile.name}
+		description={data.profile.description}
+		avatar={data.profile.avatar}
+	/>
 
-	<Links links={data.sns} />
+	<Links links={data.profile.sns} />
 
-	<Projects projects={data.projects} />
+	<Projects projects={data.profile.projects} />
+
+	<Articles articles={data.articles} />
 </div>
 
 <style>
@@ -20,5 +27,36 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
+	}
+	/** reset css*/
+	:global(html) {
+		box-sizing: border-box;
+		font-size: 16px;
+		margin: 0;
+		padding: 0;
+	}
+
+	:global(body, h1, h2, h3, h4, h5, h6, p, ol, ul) {
+		font-weight: normal;
+		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+			Cantarell, 'Open Sans', 'Helvetica Neue', 'sans-serif';
+	}
+
+	:global(ol, ul) {
+		list-style: none;
+	}
+
+	:global(a, a:visited, a:hover, a:active) {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	:global(a:visited) {
+		text-decoration: none;
+	}
+
+	:global(img) {
+		max-width: 100%;
+		height: auto;
 	}
 </style>

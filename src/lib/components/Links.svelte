@@ -44,11 +44,6 @@
 	.link-item {
 		font-size: 2rem;
 		color: black;
-		list-style: none;
-	}
-
-	a:visited {
-		color: black;
 	}
 
 	@media screen and (max-width: 30rem) {

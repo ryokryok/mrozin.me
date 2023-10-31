@@ -40,8 +40,8 @@
 	}
 
 	.author-name {
-		color: #000;
-		font-size: 3rem;
+		font-size: 4rem;
+		font-weight: 800;
 		text-shadow: #ddd 1px 0 10px;
 	}
 
