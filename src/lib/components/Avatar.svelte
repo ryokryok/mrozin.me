@@ -36,7 +36,9 @@
 		height: 10rem;
 	}
 	.author-profile {
-		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
 	}
 
 	.author-name {
@@ -47,6 +49,7 @@
 
 	.author-paragraph {
 		font-size: 1.5rem;
+		color: #333;
 	}
 
 	@media screen and (max-width: 30rem) {
@@ -56,6 +59,7 @@
 		}
 		.author-profile {
 			text-align: center;
+			flex-direction: column;
 		}
 	}
 </style>

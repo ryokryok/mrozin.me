@@ -27,12 +27,10 @@
 		gap: 0.5rem;
 	}
 	.content-title {
-		color: #000;
 		font-size: 2rem;
 		font-weight: 800;
 	}
 	.project-title {
-		color: #000;
 		font-size: 1.5rem;
 		font-weight: bold;
 		padding-bottom: 0.25rem;

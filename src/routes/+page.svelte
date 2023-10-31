@@ -8,7 +8,7 @@
 	export let data: PageData;
 </script>
 
-<div class="content-layout">
+<div class="content-container">
 	<Avatar
 		name={data.profile.name}
 		description={data.profile.description}
@@ -23,11 +23,6 @@
 </div>
 
 <style>
-	.content-layout {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-	}
 	/** reset css*/
 	:global(html) {
 		box-sizing: border-box;
@@ -58,5 +53,14 @@
 	:global(img) {
 		max-width: 100%;
 		height: auto;
+	}
+
+	.content-container {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		max-width: 50rem;
+		margin: 0 auto;
+		padding: 3rem 1rem;
 	}
 </style>
