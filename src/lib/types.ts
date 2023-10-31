@@ -33,3 +33,17 @@ export type ProfileResponse = MicroCMSDate &
 		sns: Link[];
 		projects: Project[];
 	};
+
+export type ZennArticle = {
+	id: string;
+	title: string;
+	slug: string;
+	emoji: string;
+	published_at: string;
+	body_updated_at: string;
+	path: string;
+};
+
+export type ZennArticleResponse = {
+	articles: ZennArticle[];
+};

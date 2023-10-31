@@ -36,17 +36,20 @@
 		height: 10rem;
 	}
 	.author-profile {
-		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
 	}
 
 	.author-name {
-		color: #000;
-		font-size: 3rem;
+		font-size: 4rem;
+		font-weight: 800;
 		text-shadow: #ddd 1px 0 10px;
 	}
 
 	.author-paragraph {
 		font-size: 1.5rem;
+		color: #333;
 	}
 
 	@media screen and (max-width: 30rem) {
@@ -56,6 +59,7 @@
 		}
 		.author-profile {
 			text-align: center;
+			flex-direction: column;
 		}
 	}
 </style>

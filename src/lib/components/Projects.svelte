@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Fa from 'svelte-fa';
-	import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
+	import { faExternalLink } from '@fortawesome/free-solid-svg-icons/faExternalLink';
 	import type { Project } from '$lib/types';
 	export let projects: Project[];
 </script>
@@ -27,11 +27,10 @@
 		gap: 0.5rem;
 	}
 	.content-title {
-		color: #000;
 		font-size: 2rem;
+		font-weight: 800;
 	}
 	.project-title {
-		color: #000;
 		font-size: 1.5rem;
 		font-weight: bold;
 		padding-bottom: 0.25rem;
