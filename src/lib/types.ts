@@ -8,13 +8,13 @@ export type Avatar = {
   };
 };
 
-export type Link = {
+type Link = {
   id: string;
   name: string;
   url: string;
 };
 
-export type Project = {
+type Project = {
   id: string;
   title: string;
   description: string;
@@ -28,11 +28,24 @@ type MicroCMSDate = {
   revisedAt: string;
 };
 
-export type ProfileResponse = MicroCMSDate &
-  Avatar & {
-    sns: Link[];
-    projects: Project[];
-  };
+type MicroCMSListData<T> = {
+  contents: (T & MicroCMSDate)[];
+  totalCount: number;
+  offset: number;
+  limit: number;
+};
+
+export type ProfileResponse =
+  & MicroCMSDate
+  & Avatar;
+
+export type SNSResponse = MicroCMSListData<Link>;
+
+export type SNSList = SNSResponse["contents"];
+
+export type ProjectsResponse = MicroCMSListData<Project>;
+
+export type ProjectList = ProjectsResponse["contents"];
 
 export type ZennArticle = {
   id: string;

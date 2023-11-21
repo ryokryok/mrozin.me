@@ -4,9 +4,9 @@
   import ZennLogo from "./ZennLogo.svelte";
   import HatenaLogo from "./HatenaLogo.svelte";
   import XLogo from "./XLogo.svelte";
-  import type { Link } from "$lib/types";
+  import type { SNSList } from "$lib/types";
 
-  export let links: Link[];
+  export let links: SNSList;
 </script>
 
 <div class="links">

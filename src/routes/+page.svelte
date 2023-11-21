@@ -15,9 +15,9 @@
     avatar={data.profile.avatar}
   />
 
-  <Links links={data.profile.sns} />
+  <Links links={data.sns.contents} />
 
-  <Projects projects={data.profile.projects} />
+  <Projects projects={data.projects.contents} />
 
   <Articles articles={data.articles} />
 </div>
