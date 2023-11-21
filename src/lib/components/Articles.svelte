@@ -3,13 +3,9 @@
 	import { faExternalLink } from '@fortawesome/free-solid-svg-icons/faExternalLink';
 
 	import type { ZennArticle } from '$lib/types';
+	import { formatDate } from '$lib/utils';
 
 	export let articles: ZennArticle[];
-
-	const formatDate = (dateString: string) => {
-		const date = new Date(dateString);
-		return date.toLocaleDateString();
-	};
 </script>
 
 <div class="content-root">

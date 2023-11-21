@@ -17,6 +17,10 @@ jobs:
       contents: read
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    env:
+      CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
+      CMS_ENDPOINT: ${{ secrets.CMS_ENDPOINT }}
+      TZ: 'Asia/Tokyo'
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -31,16 +35,7 @@ jobs:
         run: pnpm lint
       - name: Svelte Check
         run: pnpm check
-        env:
-          CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
-          CMS_ENDPOINT: ${{ secrets.CMS_ENDPOINT }}
       - name: Unit test
         run: pnpm test:unit
-        env:
-          CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
-          CMS_ENDPOINT: ${{ secrets.CMS_ENDPOINT }}
       - name: E2E Test
         run: npx playwright install && pnpm test
-        env:
-          CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
-          CMS_ENDPOINT: ${{ secrets.CMS_ENDPOINT }}
