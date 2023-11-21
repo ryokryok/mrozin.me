@@ -14,13 +14,13 @@ const config = {
     adapter: cloudflare({
       routes: {
         include: ["/*"],
-        exclude: ["<all>"]
-      }
+        exclude: ["<all>"],
+      },
     }),
     files: {
-      lib: "src/lib"
-    }
-  }
+      lib: "src/lib",
+    },
+  },
 };
 
 export default config;

@@ -9,13 +9,13 @@ test("Links.svelte: shows site links from props", () => {
     {
       id: "aaa",
       name: "GitHub",
-      url: "https://github.com/ryokryok"
+      url: "https://github.com/ryokryok",
     },
     {
       id: "bbb",
       name: "X",
-      url: "https://twitter.com/Mr_ozin"
-    }
+      url: "https://twitter.com/Mr_ozin",
+    },
   ];
   render(Links, { links: links });
   const linkElements = screen.getAllByRole<HTMLAnchorElement>("link");
