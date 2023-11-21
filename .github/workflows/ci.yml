@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths-ignore:
-      - 'README.md'
-      - 'static/**'
+      - "README.md"
+      - "static/**"
   pull_request:
     branches:
       - main
@@ -20,12 +20,12 @@ jobs:
     env:
       CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
       CMS_ENDPOINT: ${{ secrets.CMS_ENDPOINT }}
-      TZ: 'Asia/Tokyo'
+      TZ: "Asia/Tokyo"
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "18"
           cache: npm
           cache-dependency-path: package.json
       - run: corepack enable pnpm

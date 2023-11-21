@@ -4,6 +4,6 @@
  * @returns {string} YYYY-MM-DD
  */
 export const formatDate = (dateString: string): string => {
-	const date = new Date(dateString);
-	return date.toLocaleDateString('sv-SE', { timeZone: 'Asia/Tokyo' });
+  const date = new Date(dateString);
+  return date.toLocaleDateString("sv-SE", { timeZone: "Asia/Tokyo" });
 };
