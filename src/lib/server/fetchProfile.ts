@@ -1,4 +1,4 @@
-import { CMS_API_KEY, CMS_DRAFT_KEY, CMS_ENDPOINT } from "$env/static/private";
+import { CMS_API_KEY, CMS_ENDPOINT } from "$env/static/private";
 import { dev } from "$app/environment";
 import type {
   ProfileResponse,
@@ -8,11 +8,13 @@ import type {
 
 const baseURL = CMS_ENDPOINT ?? "";
 const apiKey = CMS_API_KEY ?? "";
-const draftKey = CMS_DRAFT_KEY ?? "";
 
 export const fetchProfile = async (): Promise<ProfileResponse> => {
+  // use draftKey for development
   const url = dev
-    ? `${baseURL}/profile?draftKey=${draftKey}`
+    ? `${baseURL}/profile?draftKey=${
+      (await import("$env/static/private")).CMS_DRAFT_KEY
+    }`
     : `${baseURL}/profile`;
   const res = await fetch(url, {
     headers: {
