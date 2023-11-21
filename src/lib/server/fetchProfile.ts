@@ -11,10 +11,11 @@ const apiKey = CMS_API_KEY ?? "";
 
 export const fetchProfile = async (): Promise<ProfileResponse> => {
   // use draftKey for development
+  const draftKey = dev
+    ? (await import("$env/static/private")).CMS_DRAFT_KEY
+    : "";
   const url = dev
-    ? `${baseURL}/profile?draftKey=${
-      (await import("$env/static/private")).CMS_DRAFT_KEY
-    }`
+    ? `${baseURL}/profile?draftKey=${draftKey}`
     : `${baseURL}/profile`;
   const res = await fetch(url, {
     headers: {
