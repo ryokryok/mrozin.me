@@ -35,9 +35,7 @@ type MicroCMSListData<T> = {
   limit: number;
 };
 
-export type ProfileResponse =
-  & MicroCMSDate
-  & Avatar;
+export type ProfileResponse = MicroCMSDate & Avatar;
 
 export type SNSResponse = MicroCMSListData<Link>;
 
