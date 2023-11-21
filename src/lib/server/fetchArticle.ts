@@ -13,7 +13,9 @@ if (import.meta.vitest) {
   const { it, expect } = import.meta.vitest;
   it("generateArticleURL", () => {
     const result = generateArticleURL();
-    expect(result).toBe("https://zenn.dev/api/articles?username=mr_ozin&count=6&order=latest");
+    expect(result).toBe(
+      "https://zenn.dev/api/articles?username=mr_ozin&count=6&order=latest",
+    );
   });
 }
 

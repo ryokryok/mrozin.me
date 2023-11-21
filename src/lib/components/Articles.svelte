@@ -14,8 +14,15 @@
     {#each articles as article}
       <li>
         <a href={`https://zenn.dev${article.path}`}>
-          <h3 class="article-title"><Fa icon={faExternalLink} /> {article.title}</h3>
-          <p><time datetime={article.published_at}>{formatDate(article.published_at)}</time></p>
+          <h3 class="article-title">
+            <Fa icon={faExternalLink} />
+            {article.title}
+          </h3>
+          <p>
+            <time datetime={article.published_at}
+              >{formatDate(article.published_at)}</time
+            >
+          </p>
         </a>
       </li>
     {/each}

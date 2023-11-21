@@ -10,7 +10,12 @@
 
 <div class="author-content">
   <div class="author-avatar">
-    <img src={avatar.url} alt={name} width={avatar.width} height={avatar.height} />
+    <img
+      src={avatar.url}
+      alt={name}
+      width={avatar.width}
+      height={avatar.height}
+    />
   </div>
   <div class="author-profile">
     <h1 class="author-name">{name}</h1>

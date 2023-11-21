@@ -4,16 +4,21 @@
   import ZennLogo from "./ZennLogo.svelte";
   import HatenaLogo from "./HatenaLogo.svelte";
   import XLogo from "./XLogo.svelte";
-  import type { Link } from "$lib/types";
+  import type { SNSList } from "$lib/types";
 
-  export let links: Link[];
+  export let links: SNSList;
 </script>
 
 <div class="links">
   <ul class="link-list">
     {#each links as link}
       <li class="link-item">
-        <a href={link.url} title={link.name} target="_blank" rel="noopener noreferrer">
+        <a
+          href={link.url}
+          title={link.name}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {#if link.name === "GitHub"}
             <Fa icon={faGithub} />
           {:else if link.name === "Twitter" || link.name === "X"}

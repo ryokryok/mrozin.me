@@ -20,6 +20,8 @@ jobs:
     env:
       CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
       CMS_ENDPOINT: ${{ secrets.CMS_ENDPOINT }}
+      # use only development mode
+      CMS_DRAFT_KEY: ""
       TZ: "Asia/Tokyo"
     steps:
       - uses: actions/checkout@v3
