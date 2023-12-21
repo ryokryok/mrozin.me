@@ -1,7 +1,4 @@
 <script lang="ts">
-  import Fa from "svelte-fa";
-  import { faExternalLink } from "@fortawesome/free-solid-svg-icons/faExternalLink";
-
   import type { ZennArticle } from "$lib/types";
   import { formatDate } from "$lib/utils";
 
@@ -15,7 +12,6 @@
       <li>
         <a href={`https://zenn.dev${article.path}`}>
           <h3 class="article-title">
-            <Fa icon={faExternalLink} />
             {article.title}
           </h3>
           <p>
@@ -33,7 +29,7 @@
   .content-root {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
   }
   .content-title {
     font-size: 2rem;

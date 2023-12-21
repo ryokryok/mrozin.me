@@ -12,8 +12,11 @@
       <h3 class="project-title">{project.title}</h3>
       <p class="project-description">{project.description}</p>
       {#if project.url !== undefined}
-        <a href={project.url} target="_blank" class="project-link"
-          ><Fa icon={faExternalLink} /> {project.url}</a
+        <a
+          href={project.url}
+          title={project.title}
+          target="_blank"
+          class="project-link"><Fa icon={faExternalLink} /></a
         >
       {/if}
     </article>
@@ -24,7 +27,7 @@
   .content-root {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
   }
   .content-title {
     font-size: 2rem;
