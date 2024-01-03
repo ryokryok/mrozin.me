@@ -1,7 +1,3 @@
-<script lang="ts">
-  import "./global.css";
-</script>
-
 <svelte:head>
   <title>Mr_ozin</title>
   <meta name="description" content="Profile site about Mr_ozin" />

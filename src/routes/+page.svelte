@@ -24,6 +24,13 @@
 
 <style>
   /** reset css*/
+  :global(*) {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+
   :global(html) {
     box-sizing: border-box;
     font-size: 16px;
@@ -60,8 +67,13 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    max-width: 50rem;
+    max-width: 40rem;
     margin: 0 auto;
     padding: 3rem 1rem;
+  }
+  @media screen and (max-width: 30rem) {
+    .content-container {
+      padding: 1rem;
+    }
   }
 </style>

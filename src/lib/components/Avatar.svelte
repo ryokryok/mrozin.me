@@ -39,6 +39,7 @@
   .author-avatar {
     width: 10rem;
     height: 10rem;
+    aspect-ratio: 1 / 1;
   }
   .author-profile {
     display: flex;

@@ -9,16 +9,18 @@
   <h2 class="content-title">Projects</h2>
   {#each projects as project}
     <article>
-      <h3 class="project-title">{project.title}</h3>
+      <div class="project-header">
+        <h3 class="project-title">{project.title}</h3>
+        <p>
+          <a
+            href={project.url}
+            title={project.title}
+            target="_blank"
+            class="project-link"><Fa icon={faExternalLink} /></a
+          >
+        </p>
+      </div>
       <p class="project-description">{project.description}</p>
-      {#if project.url !== undefined}
-        <a
-          href={project.url}
-          title={project.title}
-          target="_blank"
-          class="project-link"><Fa icon={faExternalLink} /></a
-        >
-      {/if}
     </article>
   {/each}
 </div>
@@ -33,13 +35,20 @@
     font-size: 2rem;
     font-weight: 800;
   }
+  .project-header {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+  }
+
   .project-title {
     font-size: 1.5rem;
     font-weight: bold;
     padding-bottom: 0.25rem;
   }
   .project-link {
-    font-size: 1rem;
+    font-size: 1.25rem;
     color: #444;
     font-weight: bold;
   }
