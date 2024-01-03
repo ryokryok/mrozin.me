@@ -1,13 +1,18 @@
 import { expect, test } from "@playwright/test";
 
-test("check lang", async ({ page }) => {
+// common setup
+test.beforeEach(async ({ page }) => {
   await page.goto("/");
+})
+
+test("check lang", async ({ page, browserName }) => {
+  test.skip(browserName !== "chromium", "Checking with Chrome is sufficient")
   // expected: <html lang="ja">
   await expect(page.locator("html")).toHaveAttribute("lang", "ja");
 });
 
-test("check heading tags", async ({ page }) => {
-  await page.goto("/");
+test("check heading tags", async ({ page, browserName }) => {
+  test.skip(browserName !== "chromium", "Checking with Chrome is sufficient")
   // heading tags
   await expect(
     page.getByRole("heading", { name: "Mr_ozin", level: 1 }),
@@ -20,8 +25,8 @@ test("check heading tags", async ({ page }) => {
   ).toBeVisible();
 });
 
+// Meta tags are loaded in JavaScript on every devices, so check OGP in all browsers.
 test("check meta tags, and title", async ({ page }) => {
-  await page.goto("/");
   // Title
   expect(await page.title()).toBe("Mr_ozin");
   // OGP
