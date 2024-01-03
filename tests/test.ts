@@ -3,16 +3,16 @@ import { expect, test } from "@playwright/test";
 // common setup
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
-})
+});
 
 test("check lang", async ({ page, browserName }) => {
-  test.skip(browserName !== "chromium", "Checking with Chrome is sufficient")
+  test.skip(browserName !== "chromium", "Checking with Chrome is sufficient");
   // expected: <html lang="ja">
   await expect(page.locator("html")).toHaveAttribute("lang", "ja");
 });
 
 test("check heading tags", async ({ page, browserName }) => {
-  test.skip(browserName !== "chromium", "Checking with Chrome is sufficient")
+  test.skip(browserName !== "chromium", "Checking with Chrome is sufficient");
   // heading tags
   await expect(
     page.getByRole("heading", { name: "Mr_ozin", level: 1 }),
