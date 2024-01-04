@@ -40,6 +40,6 @@ jobs:
       - name: Unit test
         run: pnpm test:unit
       - name: Install Playwright
-        run: npx playwright install --with-deps
+        run: pnpx playwright install --with-deps
       - name: E2E Test
         run: pnpm test
