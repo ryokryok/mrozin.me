@@ -48,7 +48,7 @@ test("check meta tags, and title", async ({ page }) => {
   );
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
     "content",
-    "https://mrozin.me/images/author.jpg",
+    "https://mrozin.me/author.jpg",
   );
   await expect(page.locator('meta[property="og:type"]')).toHaveAttribute(
     "content",
