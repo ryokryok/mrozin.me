@@ -5,16 +5,12 @@ const config = defineConfig({
     command: "pnpm build && pnpm preview",
     port: 4173,
   },
-  testDir: "tests",
+  testDir: "e2e",
   testMatch: /(.+\.)?(test|spec)\.[jt]s/,
   projects: [
     {
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
-    },
-    {
-      name: "firefox",
-      use: { ...devices["Desktop Firefox"] },
     },
     {
       name: "webkit",

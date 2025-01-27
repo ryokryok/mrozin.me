@@ -24,6 +24,7 @@ export const load: PageServerLoad = async () => {
     } else {
       throw error(404, "Not found");
     }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
     throw error(404, "Not found");
   }
