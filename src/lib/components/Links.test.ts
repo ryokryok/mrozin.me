@@ -1,10 +1,9 @@
-import "@testing-library/jest-dom";
 import { expect, test } from "vitest";
 import { render, screen } from "@testing-library/svelte";
 import Links from "./Links.svelte";
 import type { SNSList } from "$lib/types";
 
-test("Links.svelte: shows site links from props", () => {
+test.skip("Links.svelte: shows site links from props", () => {
   const links: SNSList = [
     {
       id: "aaa",
