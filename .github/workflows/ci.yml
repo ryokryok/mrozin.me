@@ -11,17 +11,16 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   ci:
-    permissions:
-      contents: read
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
       CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
       CMS_ENDPOINT: ${{ secrets.CMS_ENDPOINT }}
-      # use only development mode
-      CMS_DRAFT_KEY: ""
       TZ: "Asia/Tokyo"
     steps:
       - uses: actions/checkout@v3
@@ -39,6 +38,23 @@ jobs:
         run: pnpm check
       - name: Unit test
         run: pnpm test:unit
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
+      CMS_ENDPOINT: ${{ secrets.CMS_ENDPOINT }}
+      TZ: "Asia/Tokyo"
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: package.json
+      - run: corepack enable pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
       - name: Install Playwright
         run: pnpm exec playwright install --with-deps
       - name: E2E Test
