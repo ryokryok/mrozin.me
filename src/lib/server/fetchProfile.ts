@@ -1,5 +1,5 @@
 import { CMS_API_KEY, CMS_ENDPOINT } from "$env/static/private";
-import { dev } from "$app/environment";
+
 import type {
   ProfileResponse,
   ProjectsResponse,
@@ -10,13 +10,8 @@ const baseURL = CMS_ENDPOINT ?? "";
 const apiKey = CMS_API_KEY ?? "";
 
 export const fetchProfile = async (): Promise<ProfileResponse> => {
-  // use draftKey for development
-  const draftKey = dev
-    ? (await import("$env/static/private")).CMS_DRAFT_KEY
-    : "";
-  const url = dev
-    ? `${baseURL}/profile?draftKey=${draftKey}`
-    : `${baseURL}/profile`;
+  const url = `${baseURL}/profile`;
+  console.log(url)
   const res = await fetch(url, {
     headers: {
       "X-MICROCMS-API-KEY": apiKey,
