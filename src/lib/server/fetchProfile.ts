@@ -11,7 +11,6 @@ const apiKey = CMS_API_KEY ?? "";
 
 export const fetchProfile = async (): Promise<ProfileResponse> => {
   const url = `${baseURL}/profile`;
-  console.log(url)
   const res = await fetch(url, {
     headers: {
       "X-MICROCMS-API-KEY": apiKey,
