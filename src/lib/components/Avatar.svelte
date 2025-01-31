@@ -5,6 +5,7 @@
     width: number;
   };
   export let name: string;
+  export let username: string;
   export let description: string;
 </script>
 
@@ -19,6 +20,7 @@
   </div>
   <div class="author-profile">
     <h1 class="author-name">{name}</h1>
+    <h2 class="author-username">@{username}</h2>
     <p class="author-paragraph">{description}</p>
   </div>
 </div>
@@ -44,13 +46,21 @@
   .author-profile {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
   }
 
   .author-name {
     font-size: 4rem;
     font-weight: 800;
-    text-shadow: #ddd 1px 0 10px;
+    text-shadow: #bbb 4px 0px 20px;
+    line-height: 0.8;
+  }
+
+  .author-username {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #555;
+    line-height: 1;
   }
 
   .author-paragraph {

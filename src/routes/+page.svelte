@@ -1,5 +1,4 @@
 <script lang="ts">
-  import Articles from "$lib/components/Articles.svelte";
   import Avatar from "$lib/components/Avatar.svelte";
   import Links from "$lib/components/Links.svelte";
   import Projects from "$lib/components/Projects.svelte";
@@ -11,6 +10,7 @@
 <div class="content-container">
   <Avatar
     name={data.profile.name}
+    username={data.profile.username}
     description={data.profile.description}
     avatar={data.profile.avatar}
   />
@@ -18,8 +18,6 @@
   <Links links={data.sns.contents} />
 
   <Projects projects={data.projects.contents} />
-
-  <Articles articles={data.articles} />
 </div>
 
 <style>
@@ -75,7 +73,7 @@
   .content-container {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     max-width: 40rem;
     margin: 0 auto;
     padding: 3rem 1rem;
@@ -83,6 +81,7 @@
   @media screen and (max-width: 30rem) {
     .content-container {
       padding: 1rem;
+      gap: 1rem;
     }
   }
 </style>
