@@ -1,5 +1,4 @@
 <script lang="ts">
-  import Articles from "$lib/components/Articles.svelte";
   import Avatar from "$lib/components/Avatar.svelte";
   import Links from "$lib/components/Links.svelte";
   import Projects from "$lib/components/Projects.svelte";
@@ -18,8 +17,6 @@
   <Links links={data.sns.contents} />
 
   <Projects projects={data.projects.contents} />
-
-  <Articles articles={data.articles} />
 </div>
 
 <style>
@@ -75,7 +72,7 @@
   .content-container {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     max-width: 40rem;
     margin: 0 auto;
     padding: 3rem 1rem;
