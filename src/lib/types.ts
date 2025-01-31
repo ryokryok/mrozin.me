@@ -1,6 +1,6 @@
 export type Avatar = {
   name: string;
-  username: string
+  username: string;
   description: string;
   avatar: {
     url: string;
