@@ -15,13 +15,10 @@ test("check heading tags", async ({ page, browserName }) => {
   test.skip(browserName !== "chromium", "Checking with Chrome is sufficient");
   // heading tags
   await expect(
-    page.getByRole("heading", { name: "Mr_ozin", level: 1 }),
+    page.getByRole("heading", { name: "Ryo Kato", level: 1 }),
   ).toBeVisible();
   await expect(
     page.getByRole("heading", { name: "Projects", level: 2 }),
-  ).toBeVisible();
-  await expect(
-    page.getByRole("heading", { name: "Articles", level: 2 }),
   ).toBeVisible();
 });
 

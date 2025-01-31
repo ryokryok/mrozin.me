@@ -10,6 +10,7 @@
 <div class="content-container">
   <Avatar
     name={data.profile.name}
+    username={data.profile.username}
     description={data.profile.description}
     avatar={data.profile.avatar}
   />
@@ -80,6 +81,7 @@
   @media screen and (max-width: 30rem) {
     .content-container {
       padding: 1rem;
+      gap: 1rem;
     }
   }
 </style>
