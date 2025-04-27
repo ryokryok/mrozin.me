@@ -1,27 +1,34 @@
-import { CMS_API_KEY, CMS_ENDPOINT } from "$env/static/private";
+import { CMS_API_KEY } from "$env/static/private";
+import { ProfileResponseSchema } from "$lib/schema";
 
-import type {
-  ProfileResponse,
-  ProjectsResponse,
-  SNSResponse,
-} from "$lib/types";
+const CMS_ENDPOINT = "https://mrozin.microcms.io/api/v1/";
 
-const baseURL = CMS_ENDPOINT ?? "";
+import type { ProjectsResponse, SNSResponse } from "$lib/types";
+
 const apiKey = CMS_API_KEY ?? "";
 
-export const fetchProfile = async (): Promise<ProfileResponse> => {
-  const url = `${baseURL}/profile`;
-  const res = await fetch(url, {
+export const fetchProfile = async () => {
+  const url = new URL("profile", CMS_ENDPOINT);
+  const response = await fetch(url, {
     headers: {
       "X-MICROCMS-API-KEY": apiKey,
     },
   });
 
-  return await res.json();
+  if (!response.ok) {
+    throw new Error(
+      `Failed to fetch profile: ${response.status} ${response.statusText}`,
+    );
+  }
+  const json = await response.json();
+
+  const parsed = ProfileResponseSchema.parse(json);
+
+  return parsed;
 };
 
 export const fetchSNS = async (): Promise<SNSResponse> => {
-  const url = `${baseURL}/sns`;
+  const url = new URL("sns", CMS_ENDPOINT);
   const res = await fetch(url, {
     headers: {
       "X-MICROCMS-API-KEY": apiKey,
@@ -32,7 +39,7 @@ export const fetchSNS = async (): Promise<SNSResponse> => {
 };
 
 export const fetchProjects = async (): Promise<ProjectsResponse> => {
-  const url = `${baseURL}/projects`;
+  const url = new URL("projects", CMS_ENDPOINT);
   const res = await fetch(url, {
     headers: {
       "X-MICROCMS-API-KEY": apiKey,
