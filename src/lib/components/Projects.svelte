@@ -1,8 +1,8 @@
 <script lang="ts">
   import Fa from "svelte-fa";
   import { faExternalLink } from "@fortawesome/free-solid-svg-icons/faExternalLink";
-  import type { ProjectList } from "$lib/types";
-  export let projects: ProjectList;
+  import type { ProjectListType } from "$lib/schema";
+  export let projects: ProjectListType[];
 </script>
 
 <div class="content-root">

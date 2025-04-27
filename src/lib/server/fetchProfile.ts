@@ -1,43 +1,25 @@
-import { CMS_API_KEY, CMS_ENDPOINT } from "$env/static/private";
+import { CMS_API_KEY } from "$env/static/private";
+import { CMS_ENDPOINT } from "$lib/constants";
+import { ProfileResponseSchema } from "$lib/schema";
 
-import type {
-  ProfileResponse,
-  ProjectsResponse,
-  SNSResponse,
-} from "$lib/types";
-
-const baseURL = CMS_ENDPOINT ?? "";
 const apiKey = CMS_API_KEY ?? "";
 
-export const fetchProfile = async (): Promise<ProfileResponse> => {
-  const url = `${baseURL}/profile`;
-  const res = await fetch(url, {
+export const fetchProfile = async () => {
+  const url = new URL("profile", CMS_ENDPOINT);
+  const response = await fetch(url, {
     headers: {
       "X-MICROCMS-API-KEY": apiKey,
     },
   });
 
-  return await res.json();
-};
+  if (!response.ok) {
+    throw new Error(
+      `Failed to fetch profile: ${response.status} ${response.statusText}`,
+    );
+  }
+  const json = await response.json();
 
-export const fetchSNS = async (): Promise<SNSResponse> => {
-  const url = `${baseURL}/sns`;
-  const res = await fetch(url, {
-    headers: {
-      "X-MICROCMS-API-KEY": apiKey,
-    },
-  });
+  const parsed = ProfileResponseSchema.parse(json);
 
-  return await res.json();
-};
-
-export const fetchProjects = async (): Promise<ProjectsResponse> => {
-  const url = `${baseURL}/projects`;
-  const res = await fetch(url, {
-    headers: {
-      "X-MICROCMS-API-KEY": apiKey,
-    },
-  });
-
-  return await res.json();
+  return parsed;
 };

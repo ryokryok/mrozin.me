@@ -9,15 +9,15 @@
 
 <div class="content-container">
   <Avatar
-    name={data.profile.name}
-    username={data.profile.username}
-    description={data.profile.description}
-    avatar={data.profile.avatar}
+    name={data.name}
+    username={data.username}
+    description={data.description}
+    avatar={data.avatar}
   />
 
-  <Links links={data.sns.contents} />
+  <Links links={data.sns} />
 
-  <Projects projects={data.projects.contents} />
+  <Projects projects={data.projects} />
 </div>
 
 <style>
