@@ -1,7 +1,6 @@
 import { CMS_API_KEY } from "$env/static/private";
+import { CMS_ENDPOINT } from "$lib/constants";
 import { ProfileResponseSchema } from "$lib/schema";
-
-const CMS_ENDPOINT = "https://mrozin.microcms.io/api/v1/";
 
 const apiKey = CMS_API_KEY ?? "";
 
