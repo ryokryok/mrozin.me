@@ -1,10 +1,10 @@
 import { expect, test } from "vitest";
 import { getByRole, getByText, render, screen } from "@testing-library/svelte";
 import Projects from "./Projects.svelte";
-import type { ProjectList } from "$lib/types";
+import type { ProjectListType } from "$lib/schema";
 
 test.skip("Projects.svelte: show project description from props", () => {
-  const projects: ProjectList = [
+  const projects: ProjectListType[] = [
     {
       id: "1",
       title: "project-1",
