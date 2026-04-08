@@ -1,3 +1,4 @@
+import * as v from "valibot";
 import { CMS_ENDPOINT } from "../constants";
 import { ProfileResponseSchema } from "../schema";
 
@@ -18,7 +19,7 @@ export const fetchProfile = async () => {
   }
   const json = await response.json();
 
-  const parsed = ProfileResponseSchema.parse(json);
+  const parsed = v.parse(ProfileResponseSchema, json);
 
   return parsed;
 };

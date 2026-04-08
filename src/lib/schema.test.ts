@@ -1,4 +1,5 @@
 import { it, expect } from "vitest";
+import * as v from "valibot";
 import { ProfileResponseSchema } from "./schema";
 
 const profile = {
@@ -50,6 +51,6 @@ const profile = {
 };
 
 it("should validate the profile response schema", () => {
-  const parsed = ProfileResponseSchema.parse(profile);
+  const parsed = v.parse(ProfileResponseSchema, profile);
   expect(parsed).toEqual(profile);
 });
