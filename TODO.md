@@ -6,3 +6,5 @@
   - [x] ドキュメントを更新する
 - [x] [Astro](https://astro.build/) でプロジェクトを作り直してください
   - [x] Svelte は使わないで、`*.astro` ファイルを使用してください
+- [x] Zod から Valibot に置換
+  - [x] `pnpm test` でテストが通るか確認してください
