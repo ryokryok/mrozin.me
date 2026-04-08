@@ -1,8 +1,8 @@
-import { CMS_API_KEY } from "$env/static/private";
-import { CMS_ENDPOINT } from "$lib/constants";
-import { ProfileResponseSchema } from "$lib/schema";
+import * as v from "valibot";
+import { CMS_ENDPOINT } from "../constants";
+import { ProfileResponseSchema } from "../schema";
 
-const apiKey = CMS_API_KEY ?? "";
+const apiKey = import.meta.env.CMS_API_KEY ?? "";
 
 export const fetchProfile = async () => {
   const url = new URL("profile", CMS_ENDPOINT);
@@ -19,7 +19,7 @@ export const fetchProfile = async () => {
   }
   const json = await response.json();
 
-  const parsed = ProfileResponseSchema.parse(json);
+  const parsed = v.parse(ProfileResponseSchema, json);
 
   return parsed;
 };

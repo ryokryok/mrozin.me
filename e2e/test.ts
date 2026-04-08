@@ -5,17 +5,15 @@ test.beforeEach(async ({ page }) => {
   await page.goto("/");
 });
 
-test("check lang", async ({ page, browserName }) => {
-  test.skip(browserName !== "chromium", "Checking with Chrome is sufficient");
+test("check lang", async ({ page }) => {
   // expected: <html lang="ja">
   await expect(page.locator("html")).toHaveAttribute("lang", "ja");
 });
 
-test("check heading tags", async ({ page, browserName }) => {
-  test.skip(browserName !== "chromium", "Checking with Chrome is sufficient");
+test("check heading tags", async ({ page }) => {
   // heading tags
   await expect(
-    page.getByRole("heading", { name: "Ryo Kato", level: 1 }),
+    page.getByRole("heading", { name: "Mr_ozin", level: 1 }),
   ).toBeVisible();
   await expect(
     page.getByRole("heading", { name: "Projects", level: 2 }),

@@ -3,7 +3,7 @@ import { defineConfig, devices } from "@playwright/test";
 const config = defineConfig({
   webServer: {
     command: "pnpm build && pnpm preview",
-    port: 4173,
+    port: 4321,
   },
   testDir: "e2e",
   testMatch: /(.+\.)?(test|spec)\.[jt]s/,

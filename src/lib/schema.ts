@@ -1,49 +1,52 @@
-import { z } from "zod";
+import * as v from "valibot";
 
-const MicroCMSCommonSchema = z.object({
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  publishedAt: z.string(),
-  revisedAt: z.string(),
+const MicroCMSCommonSchema = v.object({
+  createdAt: v.string(),
+  updatedAt: v.string(),
+  publishedAt: v.string(),
+  revisedAt: v.string(),
 });
 
-const MicroCMSCommonListItemSchema = z.object({
-  id: z.string(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  publishedAt: z.string(),
-  revisedAt: z.string(),
+const MicroCMSCommonListItemSchema = v.object({
+  id: v.string(),
+  createdAt: v.string(),
+  updatedAt: v.string(),
+  publishedAt: v.string(),
+  revisedAt: v.string(),
 });
 
-export const ProjectSchema = z
-  .object({
-    title: z.string(),
-    description: z.string(),
-    url: z.string(),
-  })
-  .and(MicroCMSCommonListItemSchema);
+export const ProjectSchema = v.intersect([
+  v.object({
+    title: v.string(),
+    description: v.string(),
+    url: v.string(),
+  }),
+  MicroCMSCommonListItemSchema,
+]);
 
-export const SNSSchema = z
-  .object({
-    name: z.string(),
-    url: z.string(),
-  })
-  .and(MicroCMSCommonListItemSchema);
+export const SNSSchema = v.intersect([
+  v.object({
+    name: v.string(),
+    url: v.string(),
+  }),
+  MicroCMSCommonListItemSchema,
+]);
 
-export const ProfileResponseSchema = z
-  .object({
-    name: z.string(),
-    username: z.string(),
-    description: z.string(),
-    avatar: z.object({
-      url: z.string(),
-      height: z.number(),
-      width: z.number(),
+export const ProfileResponseSchema = v.intersect([
+  v.object({
+    name: v.string(),
+    username: v.string(),
+    description: v.string(),
+    avatar: v.object({
+      url: v.string(),
+      height: v.number(),
+      width: v.number(),
     }),
-    projects: z.array(ProjectSchema),
-    sns: z.array(SNSSchema),
-  })
-  .and(MicroCMSCommonSchema);
+    projects: v.array(ProjectSchema),
+    sns: v.array(SNSSchema),
+  }),
+  MicroCMSCommonSchema,
+]);
 
-export type SNSListType = z.infer<typeof SNSSchema>;
-export type ProjectListType = z.infer<typeof ProjectSchema>;
+export type SNSListType = v.InferOutput<typeof SNSSchema>;
+export type ProjectListType = v.InferOutput<typeof ProjectSchema>;

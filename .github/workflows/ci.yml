@@ -24,17 +24,16 @@ jobs:
       TZ: "Asia/Tokyo"
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v3
         with:
           node-version: "22"
-          cache: npm
-          cache-dependency-path: package.json
-      - run: corepack enable pnpm
+          cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Lint
         run: pnpm lint
-      - name: Svelte Check
+      - name: Astro Check
         run: pnpm check
       - name: Unit test
         run: pnpm test:unit
@@ -47,15 +46,14 @@ jobs:
       TZ: "Asia/Tokyo"
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v3
         with:
           node-version: "22"
-          cache: npm
-          cache-dependency-path: package.json
-      - run: corepack enable pnpm
+          cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Install Playwright
-        run: pnpm exec playwright install --with-deps
+        run: pnpm exec playwright install --with-deps chromium
       - name: E2E Test
-        run: pnpm test
+        run: pnpm exec playwright test --project=chromium
