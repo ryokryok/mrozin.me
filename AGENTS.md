@@ -8,7 +8,7 @@ Personal portfolio site for mr_ozin (https://mrozin.me/). A single-page SvelteKi
 
 ## Commands
 
-Package manager is **pnpm** (via corepack). Do not use npm or yarn.
+Package manager is **pnpm**. Do not use npm or yarn.
 
 - `pnpm dev` — start dev server
 - `pnpm build` — build static site (requires `CMS_API_KEY` env var)
