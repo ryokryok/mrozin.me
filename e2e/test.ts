@@ -5,12 +5,12 @@ test.beforeEach(async ({ page }) => {
   await page.goto("/");
 });
 
-test("check lang", async ({ page, browserName }) => {
+test("check lang", async ({ page }) => {
   // expected: <html lang="ja">
   await expect(page.locator("html")).toHaveAttribute("lang", "ja");
 });
 
-test("check heading tags", async ({ page, browserName }) => {
+test("check heading tags", async ({ page }) => {
   // heading tags
   await expect(
     page.getByRole("heading", { name: "Mr_ozin", level: 1 }),
