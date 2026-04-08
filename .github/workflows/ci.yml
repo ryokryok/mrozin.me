@@ -56,4 +56,4 @@ jobs:
       - name: Install Playwright
         run: pnpm exec playwright install --with-deps chromium
       - name: E2E Test
-        run: pnpm test -- --project=chromium
+        run: pnpm exec playwright test --project=chromium
