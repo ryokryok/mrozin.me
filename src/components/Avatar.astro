@@ -1,13 +1,17 @@
-<script lang="ts">
-  export let avatar: {
+---
+interface Props {
+  avatar: {
     url: string;
     height: number;
     width: number;
   };
-  export let name: string;
-  export let username: string;
-  export let description: string;
-</script>
+  name: string;
+  username: string;
+  description: string;
+}
+
+const { avatar, name, username, description } = Astro.props;
+---
 
 <div class="author-content">
   <div class="author-avatar">

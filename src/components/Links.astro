@@ -1,0 +1,64 @@
+---
+import type { SNSListType } from "../lib/schema";
+import GitHubLogo from "./GitHubLogo.astro";
+import XLogo from "./XLogo.astro";
+import ZennLogo from "./ZennLogo.astro";
+import HatenaLogo from "./HatenaLogo.astro";
+
+interface Props {
+  links: SNSListType[];
+}
+
+const { links } = Astro.props;
+---
+
+<div class="links">
+  <ul class="link-list">
+    {
+      links.map((link) => (
+        <li class="link-item">
+          <a
+            href={link.url}
+            title={link.name}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {link.name === "GitHub" ? (
+              <GitHubLogo width="2rem" height="2rem" />
+            ) : link.name === "Twitter" || link.name === "X" ? (
+              <XLogo width="2rem" height="2rem" />
+            ) : link.name === "Zenn" ? (
+              <ZennLogo width="2rem" height="2rem" />
+            ) : link.name === "Hatena" ? (
+              <HatenaLogo width="2rem" height="2rem" />
+            ) : (
+              <p>{link.name}</p>
+            )}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  .links {
+    display: flex;
+  }
+
+  .link-list {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .link-item {
+    font-size: 2rem;
+    color: black;
+  }
+
+  @media screen and (max-width: 30rem) {
+    .links {
+      justify-content: center;
+    }
+  }
+</style>

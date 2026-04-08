@@ -1,42 +1,53 @@
-<script lang="ts">
-  import Avatar from "$lib/components/Avatar.svelte";
-  import Links from "$lib/components/Links.svelte";
-  import Projects from "$lib/components/Projects.svelte";
-  import type { PageData } from "./$types";
+---
+import Layout from "../layouts/Layout.astro";
+import Avatar from "../components/Avatar.astro";
+import Links from "../components/Links.astro";
+import Projects from "../components/Projects.astro";
+import { fetchProfile } from "../lib/server/fetchProfile";
 
-  export let data: PageData;
-</script>
+const profile = await fetchProfile();
+---
 
-<div class="content-container">
-  <Avatar
-    name={data.name}
-    username={data.username}
-    description={data.description}
-    avatar={data.avatar}
-  />
+<Layout title="Mr_ozin">
+  <div class="content-container">
+    <Avatar
+      name={profile.name}
+      username={profile.username}
+      description={profile.description}
+      avatar={profile.avatar}
+    />
 
-  <Links links={data.sns} />
+    <Links links={profile.sns} />
 
-  <Projects projects={data.projects} />
-</div>
+    <Projects projects={profile.projects} />
+  </div>
+</Layout>
 
-<style>
-  /** reset css*/
-  :global(*) {
+<style is:global>
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
   }
 
-  :global(html) {
+  html {
     box-sizing: border-box;
     font-size: 16px;
     margin: 0;
     padding: 0;
   }
 
-  :global(body, h1, h2, h3, h4, h5, h6, p, ol, ul) {
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ol,
+  ul {
     font-weight: normal;
     font-family:
       system-ui,
@@ -52,24 +63,30 @@
       "sans-serif";
   }
 
-  :global(ol, ul) {
+  ol,
+  ul {
     list-style: none;
   }
 
-  :global(a, a:visited, a:hover, a:active) {
+  a,
+  a:visited,
+  a:hover,
+  a:active {
     text-decoration: none;
     color: inherit;
   }
 
-  :global(a:visited) {
+  a:visited {
     text-decoration: none;
   }
 
-  :global(img) {
+  img {
     max-width: 100%;
     height: auto;
   }
+</style>
 
+<style>
   .content-container {
     display: flex;
     flex-direction: column;

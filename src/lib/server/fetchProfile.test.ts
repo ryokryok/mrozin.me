@@ -1,6 +1,6 @@
 import { expect, it, afterAll, afterEach, beforeAll } from "vitest";
 import { fetchProfile } from "./fetchProfile";
-import { CMS_ENDPOINT } from "$lib/constants";
+import { CMS_ENDPOINT } from "../constants";
 import { setupServer } from "msw/node";
 import { http, HttpResponse } from "msw";
 
