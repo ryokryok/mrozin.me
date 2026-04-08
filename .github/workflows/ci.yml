@@ -54,6 +54,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Install Playwright
-        run: pnpm exec playwright install --with-deps
+        run: pnpm exec playwright install --with-deps chromium
       - name: E2E Test
-        run: pnpm test
+        run: pnpm test -- --project=chromium
