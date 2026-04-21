@@ -24,6 +24,15 @@ const profile = await fetchProfile();
 </Layout>
 
 <style is:global>
+  :root {
+    --ink: #111111;
+    --paper: #f5f2ea;
+    --muted: #555555;
+    --shadow: 6px 6px 0 var(--ink);
+    --shadow-sm: 4px 4px 0 var(--ink);
+    --border: 3px solid var(--ink);
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -36,6 +45,13 @@ const profile = await fetchProfile();
     font-size: 16px;
     margin: 0;
     padding: 0;
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-size: 1rem;
+    min-height: 100vh;
   }
 
   body,
@@ -93,12 +109,12 @@ const profile = await fetchProfile();
     gap: 2rem;
     max-width: 40rem;
     margin: 0 auto;
-    padding: 3rem 1rem;
+    padding: 3rem 1.5rem;
   }
   @media screen and (max-width: 30rem) {
     .content-container {
-      padding: 1rem;
-      gap: 1rem;
+      padding: 1.5rem 1rem;
+      gap: 1.5rem;
     }
   }
 </style>
