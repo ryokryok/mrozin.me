@@ -33,53 +33,83 @@ const { avatar, name, username, description } = Astro.props;
   img {
     width: 100%;
     height: 100%;
-    border-radius: 10%;
+    display: block;
   }
   .author-content {
     display: flex;
     align-items: flex-start;
     justify-content: start;
-    gap: 1rem;
+    gap: 1.5rem;
+    background: #ffffff;
+    border: var(--border);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
   }
 
   .author-avatar {
     width: 10rem;
     height: 10rem;
     aspect-ratio: 1 / 1;
+    border: var(--border);
+    background: var(--paper);
+    flex-shrink: 0;
+    overflow: hidden;
   }
   .author-profile {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.875rem;
+    min-width: 0;
   }
 
   .author-name {
-    font-size: 4rem;
-    font-weight: 800;
-    text-shadow: #bbb 4px 0px 20px;
-    line-height: 0.8;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
   }
 
   .author-username {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #555;
-    line-height: 1;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: var(--ink);
+    padding: 0.25rem 0.7rem;
+    align-self: flex-start;
+    line-height: 1.3;
   }
 
   .author-paragraph {
-    font-size: 1.5rem;
-    color: #333;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-top: 0.25rem;
   }
 
   @media screen and (max-width: 30rem) {
     .author-content {
       flex-direction: column;
       align-items: center;
+      gap: 1rem;
+      padding: 1.25rem;
     }
     .author-profile {
       text-align: center;
       flex-direction: column;
+      align-items: center;
+    }
+    .author-username {
+      align-self: center;
+    }
+    .author-name {
+      font-size: 2.75rem;
+    }
+    .author-avatar {
+      width: 8rem;
+      height: 8rem;
     }
   }
 </style>
